@@ -2,39 +2,39 @@ import shelve
 
 
 class beacon:
-    stop = False
-    db = "C:/temp/reposrev.db"
+        stop = False
+        db = "C:/temp/reposrev.db"
 
-    def setup():
-        self.conn = shelve.open(self.db, writeback=True)
-        
-    def recv(args):
-        """
-        Block on receiving data from a post commit hook
-        script. return the repos and revision
-        """
-        pass
+        def setup(self):
+            self.conn = shelve.open(self.db, writeback=True)
 
-    def persist(repos, revision):
-        """
-        store the new revision number for the repos
-        """
-        conn[repos] = revision
-        conn.sync()
+        def recv(self, args):
+            """
+            Block on receiving data from a post commit hook
+            script. return the repos and revision
+            """
+            pass
 
-    def broadcast(data):
-        pass
+        def persist(self, repos, revision):
+            """
+            store the new revision number for the repos
+            """
+            conn[repos] = revision
+            conn.sync()
 
-    def loop():
-        while(not stop):
-            repos, rev = recv()
-            persist(data)
-            broadcast(data)
+        def broadcast(self, data):
+            pass
+
+        def loop(self):
+            while(not stop):
+                repos, rev = recv()
+                persist(data)
+                broadcast(data)
 
 def main():
-    setup()
-    loop()
+        setup()
+        loop()
 
 
 if __name__ == '__main__':
-    main()
+        main()

@@ -12,9 +12,8 @@ if __name__ == '__main__':
         repos, rev = sys.argv[1:]
         context = zmq.Context()
         socket = context.socket(zmq.REQ)
-        socket.connect("tcp://%s:%s" % (transport, address, port))
+        socket.connect("tcp://%s:%s" % (address, port))
         socket.send_unicode("%s:%s" % (repos, rev))
         socket.close()
         context.destroy()
         sys.exit(0)
-
